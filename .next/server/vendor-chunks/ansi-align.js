@@ -1,0 +1,25 @@
+"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+exports.id = "vendor-chunks/ansi-align";
+exports.ids = ["vendor-chunks/ansi-align"];
+exports.modules = {
+
+/***/ "(ssr)/./node_modules/ansi-align/index.js":
+/*!******************************************!*\
+  !*** ./node_modules/ansi-align/index.js ***!
+  \******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("\n\nconst stringWidth = __webpack_require__(/*! string-width */ \"(ssr)/./node_modules/string-width/index.js\")\n\nfunction ansiAlign (text, opts) {\n  if (!text) return text\n\n  opts = opts || {}\n  const align = opts.align || 'center'\n\n  // short-circuit `align: 'left'` as no-op\n  if (align === 'left') return text\n\n  const split = opts.split || '\\n'\n  const pad = opts.pad || ' '\n  const widthDiffFn = align !== 'right' ? halfDiff : fullDiff\n\n  let returnString = false\n  if (!Array.isArray(text)) {\n    returnString = true\n    text = String(text).split(split)\n  }\n\n  let width\n  let maxWidth = 0\n  text = text.map(function (str) {\n    str = String(str)\n    width = stringWidth(str)\n    maxWidth = Math.max(width, maxWidth)\n    return {\n      str,\n      width\n    }\n  }).map(function (obj) {\n    return new Array(widthDiffFn(maxWidth, obj.width) + 1).join(pad) + obj.str\n  })\n\n  return returnString ? text.join(split) : text\n}\n\nansiAlign.left = function left (text) {\n  return ansiAlign(text, { align: 'left' })\n}\n\nansiAlign.center = function center (text) {\n  return ansiAlign(text, { align: 'center' })\n}\n\nansiAlign.right = function right (text) {\n  return ansiAlign(text, { align: 'right' })\n}\n\nmodule.exports = ansiAlign\n\nfunction halfDiff (maxWidth, curWidth) {\n  return Math.floor((maxWidth - curWidth) / 2)\n}\n\nfunction fullDiff (maxWidth, curWidth) {\n  return maxWidth - curWidth\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9ub2RlX21vZHVsZXMvYW5zaS1hbGlnbi9pbmRleC5qcyIsIm1hcHBpbmdzIjoiQUFBWTs7QUFFWixvQkFBb0IsbUJBQU8sQ0FBQyxnRUFBYzs7QUFFMUM7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxHQUFHO0FBQ0g7QUFDQSxHQUFHOztBQUVIO0FBQ0E7O0FBRUE7QUFDQSwyQkFBMkIsZUFBZTtBQUMxQzs7QUFFQTtBQUNBLDJCQUEyQixpQkFBaUI7QUFDNUM7O0FBRUE7QUFDQSwyQkFBMkIsZ0JBQWdCO0FBQzNDOztBQUVBOztBQUVBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0EiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9va2Jvb2tzaG9wbmcvLi9ub2RlX21vZHVsZXMvYW5zaS1hbGlnbi9pbmRleC5qcz8wMjg1Il0sInNvdXJjZXNDb250ZW50IjpbIid1c2Ugc3RyaWN0J1xuXG5jb25zdCBzdHJpbmdXaWR0aCA9IHJlcXVpcmUoJ3N0cmluZy13aWR0aCcpXG5cbmZ1bmN0aW9uIGFuc2lBbGlnbiAodGV4dCwgb3B0cykge1xuICBpZiAoIXRleHQpIHJldHVybiB0ZXh0XG5cbiAgb3B0cyA9IG9wdHMgfHwge31cbiAgY29uc3QgYWxpZ24gPSBvcHRzLmFsaWduIHx8ICdjZW50ZXInXG5cbiAgLy8gc2hvcnQtY2lyY3VpdCBgYWxpZ246ICdsZWZ0J2AgYXMgbm8tb3BcbiAgaWYgKGFsaWduID09PSAnbGVmdCcpIHJldHVybiB0ZXh0XG5cbiAgY29uc3Qgc3BsaXQgPSBvcHRzLnNwbGl0IHx8ICdcXG4nXG4gIGNvbnN0IHBhZCA9IG9wdHMucGFkIHx8ICcgJ1xuICBjb25zdCB3aWR0aERpZmZGbiA9IGFsaWduICE9PSAncmlnaHQnID8gaGFsZkRpZmYgOiBmdWxsRGlmZlxuXG4gIGxldCByZXR1cm5TdHJpbmcgPSBmYWxzZVxuICBpZiAoIUFycmF5LmlzQXJyYXkodGV4dCkpIHtcbiAgICByZXR1cm5TdHJpbmcgPSB0cnVlXG4gICAgdGV4dCA9IFN0cmluZyh0ZXh0KS5zcGxpdChzcGxpdClcbiAgfVxuXG4gIGxldCB3aWR0aFxuICBsZXQgbWF4V2lkdGggPSAwXG4gIHRleHQgPSB0ZXh0Lm1hcChmdW5jdGlvbiAoc3RyKSB7XG4gICAgc3RyID0gU3RyaW5nKHN0cilcbiAgICB3aWR0aCA9IHN0cmluZ1dpZHRoKHN0cilcbiAgICBtYXhXaWR0aCA9IE1hdGgubWF4KHdpZHRoLCBtYXhXaWR0aClcbiAgICByZXR1cm4ge1xuICAgICAgc3RyLFxuICAgICAgd2lkdGhcbiAgICB9XG4gIH0pLm1hcChmdW5jdGlvbiAob2JqKSB7XG4gICAgcmV0dXJuIG5ldyBBcnJheSh3aWR0aERpZmZGbihtYXhXaWR0aCwgb2JqLndpZHRoKSArIDEpLmpvaW4ocGFkKSArIG9iai5zdHJcbiAgfSlcblxuICByZXR1cm4gcmV0dXJuU3RyaW5nID8gdGV4dC5qb2luKHNwbGl0KSA6IHRleHRcbn1cblxuYW5zaUFsaWduLmxlZnQgPSBmdW5jdGlvbiBsZWZ0ICh0ZXh0KSB7XG4gIHJldHVybiBhbnNpQWxpZ24odGV4dCwgeyBhbGlnbjogJ2xlZnQnIH0pXG59XG5cbmFuc2lBbGlnbi5jZW50ZXIgPSBmdW5jdGlvbiBjZW50ZXIgKHRleHQpIHtcbiAgcmV0dXJuIGFuc2lBbGlnbih0ZXh0LCB7IGFsaWduOiAnY2VudGVyJyB9KVxufVxuXG5hbnNpQWxpZ24ucmlnaHQgPSBmdW5jdGlvbiByaWdodCAodGV4dCkge1xuICByZXR1cm4gYW5zaUFsaWduKHRleHQsIHsgYWxpZ246ICdyaWdodCcgfSlcbn1cblxubW9kdWxlLmV4cG9ydHMgPSBhbnNpQWxpZ25cblxuZnVuY3Rpb24gaGFsZkRpZmYgKG1heFdpZHRoLCBjdXJXaWR0aCkge1xuICByZXR1cm4gTWF0aC5mbG9vcigobWF4V2lkdGggLSBjdXJXaWR0aCkgLyAyKVxufVxuXG5mdW5jdGlvbiBmdWxsRGlmZiAobWF4V2lkdGgsIGN1cldpZHRoKSB7XG4gIHJldHVybiBtYXhXaWR0aCAtIGN1cldpZHRoXG59XG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/ansi-align/index.js\n");
+
+/***/ })
+
+};
+;
